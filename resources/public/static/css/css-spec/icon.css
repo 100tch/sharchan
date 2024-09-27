@@ -1,0 +1,66 @@
+:root {
+	--icon-github-white: url("/static/img/icon/svg/github-white-icon.svg");
+	--icon-github-black: url("/static/img/icon/svg/github-black-icon.svg");
+	--icon-vk-white: url("/static/img/icon/svg/vk-white-icon.svg");
+	--icon-vk-black: url("/static/img/icon/svg/vk-black-icon.svg");
+	--icon-arrow-right: url("/static/img/icon/svg/arrow-right-icon.svg");
+	--icon-arrow-up: url("/static/img/icon/svg/arrow-up-icon.svg");
+	--icon-moon: url("/static/img/icon/svg/moon-icon.svg");
+	--icon-sun: url("/static/img/icon/svg/sun-icon.svg");
+	--icon-globe: url("/static/img/icon/svg/globe-icon.svg");
+}
+.icon-box {
+	--icon-size: 24px;
+	flex-shrink: 0;
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+.icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+	mask-position: center;
+	-webkit-mask-position: center;
+	mask-size: contain;
+	-webkit-mask-size: contain;
+	mask-repeat: no-repeat;
+	-webkit-mask-repeat: no-repeat;
+	color: inherit;
+	background-color: currentColor;
+}
+.icon.github-white {
+	mask-image: var(--icon-github-white);
+	-webkit-mask-image: var(--icon-github-white);
+}
+.icon.github-black {
+	mask-image: var(--icon-github-black);
+	-webkit-mask-image: var(--icon-github-black);
+}
+.icon.vk-white {
+	mask-image: var(--icon-vk-white);
+	-webkit-mask-image: var(--icon-vk-white);
+}
+.icon.vk-black {
+	mask-image: var(--icon-vk-black);
+	-webkit-mask-image: var(--icon-vk-black);
+}
+.icon.arrow-right {
+	mask-image: var(--icon-arrow-right);
+	-webkit-mask-image: var(--icon-arrow-right);
+}
+.icon.arrow-up {
+	mask-image: var(--icon-arrow-up);
+	-webkit-mask-image: var(--icon-arrow-up);
+}
+.icon.sun {
+	mask-image: var(--icon-sun);
+	-webkit-mask-image: var(--icon-sun);
+}
+.icon.moon {
+	mask-image: var(--icon-moon);
+	-webkit-mask-image: var(--icon-moon);
+}
+.icon.globe {
+	mask-image: var(--icon-globe);
+	-webkit-mask-image: var(--icon-globe);
+}

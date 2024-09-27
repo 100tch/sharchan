@@ -1,0 +1,29 @@
+{
+  :database-name "sharchan.db"
+  :storage-dir-name "storage"
+  :preferred-url-scheme "http"
+  :domain "localhost:3000"
+  :debug false
+  :max-content-length (64 1024 1024) ;; multiple and get 64 MB
+  :min-days 8
+  :max-days 128
+  :max-url-length 4096
+  :sharchan-use-x-accel-redirect false ;; expect nginx by default
+  :sharchan-max-ext-length 9
+  :sharchan-ext-override {
+    "audio/flac" ".flac"
+    "image/gif" ".gif"
+    "image/jpeg" ".jpg"
+    "image/png" ".png"
+    "image/svg+xml" ".svg"
+    "video/webm" ".webm"
+    "video/x-matroska" ".mkv"
+    "application/octet-stream" ".bin"
+    "text/plain" ".txt"
+    "text/x-diff" ".diff"
+  }
+  :sharchan-links {:github-username "name"
+                   :github-proj-name "sharchan"
+                   :vk-profile-id "id123"}
+  :port 3000
+}

@@ -1,0 +1,17 @@
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+footer a {
+	text-decoration: underline;
+}
+.additional-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.additional-container span {
+	display: inline-block;
+	margin: 0 10px;
+}

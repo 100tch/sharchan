@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="keywords" content="sharchan, file, file-sharing" />
+	<meta name="description" content="" />
+	<meta name="author" content="unknown" />
+	<title>{{title-prefix}} | sharchan</title>
+
+	<!-- GRAPH PROTOCOL -->
+	<meta property="og:site_name" content="sharchan" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:locale:alternate" content="ru_RU" />
+	<meta property="og:image" content="/static/img/icon/http-f-icon.png" />
+	<!-- FAVICON -->
+	<link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/static/min/css/styles.min.css" />
+	<!-- JS PRELOAD -->
+	<script src="/static/min/js/scripts-head.min.js" type="text/javascript"></script>
+</head>
+<body class="wrapper">
+	<header>
+		<a href="/">
+			<img id="main-logo" src="/static/img/logo/black-variant.png" alt="logo" />
+		</a>
+		<nav>
+			<span><a href="/#about">about</a></span>
+			<span><a href="/#features">features</a></span>
+			<span><a href="/#stats">stats</a></span>
+			<span><a href="/#howitwork">howitwork</a></span>
+			<span><a href="/#feedback">feedback</a></span>
+		</nav>
+		<div class="header-buttons">
+			<button id="theme-toggle" class="icon-button sm header-button"><span id="theme-icon" class="icon moon"></span></button>
+			<button id="lang-toggle" class="icon-button sm header-button"><span class="icon globe"></span></button>
+			<button id="scroll-up" class="icon-button sm header-button"><span id="scroll-up-icon" class="icon arrow-up"></span></button>
+		</div>
+	</header>
+
+	<main id="main-wrapper">
+		{% block body %}
+		{% endblock %}
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>sharchan is released under the <a href="https://opensource.org/license/BSD-2-Clause">BSD 2-Clause</a> license. Get and use the <a href="/logo">sharchan logo</a>. More useful links below.</p>
+		</div>
+		<div class="additional-container">
+			<span><a href="https://github.com/{{links.github-username}}/{{links.github-proj-name}}" target="_blank">github</a></span>
+			<span><a href="https://vk.com/{{links.vk-profile-id}}" target="_blank">vk</a></span>
+			<span><a href="/policy">policy</a></span>
+			<span><a href="/sitemap.xml">sitemap.xml</a></span>
+			<span><a href="/robots.txt">robots.txt</a></span>
+		</div>
+	</footer>
+
+	<!-- JS -->
+	<script type="application/json" id="initial-data">
+		{
+			"min-age": {{min-age|default:0}},
+			"max-age": {{max-age|default:0}},
+			"max-size": {{max-size|default:0}}
+		}
+	</script>
+	<script src="/static/min/js/scripts.min.js" type="text/javascript"></script>
+</body>
+</html>

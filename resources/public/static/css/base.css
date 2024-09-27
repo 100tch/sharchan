@@ -1,0 +1,451 @@
+/* imports */
+@import url("/static/css/css-spec/header.css");
+@import url("/static/css/css-spec/content.css");
+@import url("/static/css/css-spec/footer.css");
+@import url("/static/css/css-spec/icon.css");
+@import url("/static/css/css-spec/button.css");
+@import url("/static/css/fonts.css");
+
+/* themes */
+:root {
+	--color-background: #ffffff;
+	--color-text: #000000;
+	--color-text-secondary: #666666;
+	--color-text-secondary-dr: #999999;
+	--color-text-secondary-lg: #666666;
+	--color-background-secondary: #000000;
+	--color-border: #606060;
+	--shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+	--spacing-1: 2px;
+	--spacing-2: 4px;
+	--spacing-3: 8px;
+	--spacing-4: 12px;
+	--spacing-5: 16px;
+	--spacing-6: 20px;
+	--spacing-7: 24px;
+	--spacing-8: 32px;
+	--spacing-9: 40px;
+	--spacing-10: 48px;
+	--spacing-11: 64px;
+	--spacing-12: 80px;
+	--spacing-13: 96px;
+	--spacing-14: 120px;
+	--spacing-15: 160px;
+	--spacing-16: 200px;
+
+	--font-family-merriweather: "Merriweather", serif;
+	--font-family-poppins: "Poppins", arial, sans-serif;
+	--font-family-mulish: "Mulish", arial, sans-serif;
+
+	--transition-all: all 200ms ease-in-out;
+	--transition-transform: transform 300ms ease-out;
+	--transition-opacity: opacity 200ms ease-in-out;
+}
+html.dark-theme {
+	--color-background: #121212;
+	--color-text: #ffffff;
+	--color-text-secondary: #999999;
+	--shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+:root,
+:root .page-container :lang(en) {
+	--font-family-for-headings: var(--font-family-poppins);
+	--font-family-for-copy: var(--font-family-merriweather);
+}
+:root,
+:root .page-container :lang(ru) {
+	--font-family-for-headings: var(--font-family-mulish);
+	--font-family-for-copy: var(--font-family-merriweather);
+}
+:root,
+:root .page-container :lang(en) {
+	/* headings */
+	--font-h1: normal 800 60px/72px var(--font-family-for-headings);
+	--font-h1-spacing: -0.3px;
+
+	--font-h2: normal 700 48px/56px var(--font-family-for-headings);
+	--font-h2-spacing: -0.24px;
+
+	--font-h3: normal 700 40px/48px var(--font-family-for-headings);
+	--font-h3-spacing: 0;
+
+	--font-h4: normal 700 32px/40px var(--font-family-for-headings);
+	--font-h4-spacing: 0.08px;
+
+	--font-h5: normal 700 24px/28px var(--font-family-for-headings);
+	--font-h5-spacing: 0;
+
+	--font-h6: normal 600 20px/24px var(--font-family-for-headings);
+	--font-h6-spacing: 0.0025em;
+
+	/* body copy */
+	--font-copy-lg: normal normal 18px/28px var(--font-family-for-copy);
+	--font-copy-lg-bold: normal bold 18px/28px var(--font-family-for-copy);
+	--font-copy-md: normal normal 16px/24px var(--font-family-for-copy);
+	--font-copy-md-bold: normal bold 16px/24px var(--font-family-for-copy);
+	--font-copy-sm: normal normal 14px/20px var(--font-family-for-copy);
+	--font-copy-sm-bold: normal bold 14px/20px var(--font-family-for-copy);
+
+	/* for font-copy-allcaps: use uppercase text (via source text only, for localisation support) */
+	--font-copy-allcaps-lg: normal bold 20px/24px var(--font-family-for-copy);
+	--font-copy-allcaps-lg-spacing: 0.08em;
+	--font-copy-allcaps-md: normal bold 18px/20px var(--font-family-for-copy);
+	--font-copy-allcaps-md-spacing: 0.08em;
+	--font-copy-allcaps-sm: normal bold 12px/16px var(--font-family-for-copy);
+	--font-copy-allcaps-sm-spacing: 0.08em;
+	--font-copy-allcaps-sm-wide-spacing: 0.2em;
+
+	/* link fonts (common to all grid sizes and all with text-underline) */
+	--font-link-lg: normal normal 18px/24px var(--font-family-for-copy);
+	--font-link-lg-bold: normal bold 18px/24px var(--font-family-for-copy);
+	--font-link-md: normal normal 16px/24px var(--font-family-for-copy);
+	--font-link-md-bold: normal bold 16px/24px var(--font-family-for-copy);
+	--font-link-sm: normal normal 14px/20px var(--font-family-for-copy);
+	--font-link-sm-semibold: normal 600 14px/20px var(--font-family-for-copy);
+	--font-link-sm-bold: normal bold 14px/20px var(--font-family-for-copy);
+
+	/* buttons fonts */
+	--font-btn-xl: normal 600 18px/24px var(--font-family-for-headings);
+	--font-btn-xl-spacing: 0.01em;
+	--font-btn-lg: normal 600 16px/24px var(--font-family-for-headings);
+	--font-btn-lg-spacing: 0;
+	--font-btn-md: normal 600 16px/20px var(--font-family-for-headings);
+	--font-btn-md-spacing: 0;
+	--font-btn-sm: normal 600 14px/20px var(--font-family-for-headings);
+	--font-btn-sm-spacing: 0;
+
+	/* quotation */
+	--font-quote: italic 400 18px/28px var(--font-family-for-copy);
+	--font-quote-bold: normal 400 32px/44px var(--font-family-for-copy);
+
+	/* input fields */
+	--font-input-xl: normal normal 18px/24px var(--font-family-for-copy);
+	--font-input-lg: normal normal 16px/24px var(--font-family-for-copy);
+	--font-input-md: normal normal 16px/20px var(--font-family-for-copy);
+	--font-input-sm: normal medium 14px/20px var(--font-family-for-copy);
+
+	/* data */
+	--font-data-zero: normal 600 56px/64px var(--font-family-for-headings);
+	--font-data-one: normal 600 48px/56px var(--font-family-for-headings);
+	--font-data-two: normal 600 40px/48px var(--font-family-for-headings);
+}
+:root,
+:root .page-container :lang(ru) {
+	/* headings */
+	--font-h1: normal 900 60px/72px var(--font-family-for-headings);
+	--font-h1-spacing: -0.3px;
+
+	--font-h2: normal 900 48px/56px var(--font-family-for-headings);
+	--font-h2-spacing: -0.24px;
+
+	--font-h3: normal 900 40px/48px var(--font-family-for-headings);
+	--font-h3-spacing: 0;
+
+	--font-h4: normal 900 32px/40px var(--font-family-for-headings);
+	--font-h4-spacing: 0.08px;
+
+	--font-h5: normal 900 24px/28px var(--font-family-for-headings);
+	--font-h5-spacing: 0;
+
+	--font-h6: normal 700 20px/24px var(--font-family-for-headings);
+	--font-h6-spacing: 0.0025em;
+
+	/* body copy */
+	--font-copy-lg: normal normal 18px/28px var(--font-family-for-copy);
+	--font-copy-lg-bold: normal bold 18px/28px var(--font-family-for-copy);
+	--font-copy-md: normal normal 16px/24px var(--font-family-for-copy);
+	--font-copy-md-bold: normal bold 16px/24px var(--font-family-for-copy);
+	--font-copy-sm: normal normal 14px/20px var(--font-family-for-copy);
+	--font-copy-sm-bold: normal bold 14px/20px var(--font-family-for-copy);
+
+	/* for font-copy-allcaps: use uppercase text (via source text only, for localisation support) */
+	--font-copy-allcaps-lg: normal bold 20px/24px var(--font-family-for-copy);
+	--font-copy-allcaps-lg-spacing: 0.08em;
+	--font-copy-allcaps-md: normal bold 18px/20px var(--font-family-for-copy);
+	--font-copy-allcaps-md-spacing: 0.08em;
+	--font-copy-allcaps-sm: normal bold 12px/16px var(--font-family-for-copy);
+	--font-copy-allcaps-sm-spacing: 0.08em;
+	--font-copy-allcaps-sm-wide-spacing: 0.2em;
+
+	/* link fonts (common to all grid sizes and all with text-underline) */
+	--font-link-lg: normal normal 18px/24px var(--font-family-for-copy);
+	--font-link-lg-bold: normal bold 18px/24px var(--font-family-for-copy);
+	--font-link-md: normal normal 16px/24px var(--font-family-for-copy);
+	--font-link-md-bold: normal bold 16px/24px var(--font-family-for-copy);
+	--font-link-sm: normal normal 14px/20px var(--font-family-for-copy);
+	--font-link-sm-semibold: normal 600 14px/20px var(--font-family-for-copy);
+	--font-link-sm-bold: normal bold 14px/20px var(--font-family-for-copy);
+
+	/* buttons fonts */
+	--font-btn-xl: normal 600 18px/24px var(--font-family-for-headings);
+	--font-btn-xl-spacing: 0.01em;
+	--font-btn-lg: normal 600 16px/24px var(--font-family-for-headings);
+	--font-btn-lg-spacing: 0;
+	--font-btn-md: normal 600 16px/20px var(--font-family-for-headings);
+	--font-btn-md-spacing: 0;
+	--font-btn-sm: normal 600 14px/20px var(--font-family-for-headings);
+	--font-btn-sm-spacing: 0;
+
+	/* quotation */
+	--font-quote: italic 400 18px/28px var(--font-family-for-copy);
+	--font-quote-bold: normal 400 32px/44px var(--font-family-for-copy);
+
+	/* input fields */
+	--font-input-xl: normal normal 18px/24px var(--font-family-for-copy);
+	--font-input-lg: normal normal 16px/24px var(--font-family-for-copy);
+	--font-input-md: normal normal 16px/20px var(--font-family-for-copy);
+	--font-input-sm: normal medium 14px/20px var(--font-family-for-copy);
+
+	/* data */
+	--font-data-zero: normal 600 56px/64px var(--font-family-for-headings);
+	--font-data-one: normal 600 48px/56px var(--font-family-for-headings);
+	--font-data-two: normal 600 40px/48px var(--font-family-for-headings);
+}
+/* brackpoint m */
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+	:root,
+	:root .page-container :lang(en) {
+		/* headings */
+		--font-h1: normal 800 48px/56px var(--font-family-for-headings);
+		--font-h1-spacing: -0.24px;
+		--font-h2: normal 700 40px/48px var(--font-family-for-headings);
+		--font-h2-spacing: 0;
+		--font-h3: normal 700 32px/40px var(--font-family-for-headings);
+		--font-h3-spacing: 0.08px;
+		--font-h4: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h4-spacing: 0;
+		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5-spacing: 0.05px;
+		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6-spacing: 0;
+
+		/* quotation */
+		--font-quote: italic normal 18px/28px var(--font-family-for-copy);
+		--font-quote-bold: normal 400 24px/34px var(--font-family-for-copy);
+
+		/* data */
+		--font-data-zero: normal 600 48px/56px var(--font-family-for-headings);
+		--font-data-one: normal 600 40px/48px var(--font-family-for-headings);
+		--font-data-two: normal 600 32px/40px var(--font-family-for-headings);
+	}
+	:root,
+	:root .page-container :lang(ru) {
+		/* headings */
+		--font-h1: normal 800 48px/56px var(--font-family-for-headings);
+		--font-h1-spacing: -0.24px;
+		--font-h2: normal 700 40px/48px var(--font-family-for-headings);
+		--font-h2-spacing: 0;
+		--font-h3: normal 700 32px/40px var(--font-family-for-headings);
+		--font-h3-spacing: 0.08px;
+		--font-h4: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h4-spacing: 0;
+		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5-spacing: 0.05px;
+		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6-spacing: 0;
+
+		/* quotation */
+		--font-quote: italic normal 18px/28px var(--font-family-for-copy);
+		--font-quote-bold: normal 400 24px/34px var(--font-family-for-copy);
+
+		/* data */
+		--font-data-zero: normal 600 48px/56px var(--font-family-for-headings);
+		--font-data-one: normal 600 40px/48px var(--font-family-for-headings);
+		--font-data-two: normal 600 32px/40px var(--font-family-for-headings);
+	}
+}
+/* brackpoint s */
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	:root,
+	:root .page-container :lang(en) {
+		/* headings */
+		--font-h1: normal 800 32px/40px var(--font-family-for-headings);
+		--font-h1-spacing: 0.08px;
+		--font-h2: normal 700 28px/36px var(--font-family-for-headings);
+		--font-h2-spacing: 0;
+		--font-h3: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h3-spacing: 0.12px;
+		--font-h4: normal 700 22px/26px var(--font-family-for-headings);
+		--font-h4-spacing: 0;
+		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5-spacing: 0.05px;
+		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6-spacing: 0;
+
+		/* quotation */
+		--font-quote: italic normal 18px/28px var(--font-family-for-copy);
+		--font-quote-bold: normal 400 24px/34px var(--font-family-for-copy);
+
+		/* data */
+		--font-data-zero: normal 600 40px/48px var(--font-family-for-headings);
+		--font-data-one: normal 600 32px/40px var(--font-family-for-headings);
+		--font-data-two: normal 600 28px/36px var(--font-family-for-headings);
+	}
+	:root,
+	:root .page-container :lang(ru) {
+		/* headings */
+		--font-h1: normal 800 32px/40px var(--font-family-for-headings);
+		--font-h1-spacing: 0.08px;
+		--font-h2: normal 700 28px/36px var(--font-family-for-headings);
+		--font-h2-spacing: 0;
+		--font-h3: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h3-spacing: 0.12px;
+		--font-h4: normal 700 22px/26px var(--font-family-for-headings);
+		--font-h4-spacing: 0;
+		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5-spacing: 0.05px;
+		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6-spacing: 0;
+
+		/* quotation */
+		--font-quote: italic normal 18px/28px var(--font-family-for-copy);
+		--font-quote-bold: normal 400 24px/34px var(--font-family-for-copy);
+
+		/* data */
+		--font-data-zero: normal 600 40px/48px var(--font-family-for-headings);
+		--font-data-one: normal 600 32px/40px var(--font-family-for-headings);
+		--font-data-two: normal 600 28px/36px var(--font-family-for-headings);
+	}
+}
+
+/* normalize css */
+*, input, ::before, ::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html {
+	scroll-behavior: smooth;
+}
+html, body {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+body {
+	font: var(--font-copy-md);
+	background-color: var(--color-background);
+	color: var(--color-text);
+	word-wrap: break-word;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+:is(h1, h2, h3, h4, h5, h6) {
+	/*font-family: var(--font-family-lato);*/
+	margin: 0;
+}
+h1 {
+	font: var(--font-h1);
+	letter-spacing: var(--font-h1-spacing);
+}
+h2 {
+	font: var(--font-h2);
+	letter-spacing: var(--font-h2-spacing);
+}
+h3 {
+	font: var(--font-h3);
+	letter-spacing: var(--font-h3-spacing);
+}
+h4 {
+	font: var(--font-h4);
+	letter-spacing: var(--font-h4-spacing);
+}
+h5 {
+	font: var(--font-h5);
+	letter-spacing: var(--font-h5-spacing);
+}
+h6 {
+	font: var(--font-h6);
+	letter-spacing: var(--font-h6-spacing);
+}
+a {
+	color: var(--color-text);
+	font-weight: normal;
+	text-decoration: none;
+	background-color: transparent;
+}
+a:hover,
+a:active {
+	color: #cc0033;
+	text-decoration: underline;
+}
+table {
+	padding: 0px;
+	border-spacing: 0px;
+}
+/*article, aside, figcaption, figure, footer, header, hgroup, main,
+menu, nav, section {
+	display: block;
+}*/
+article pre {
+	white-space: break-spaces;
+}
+code {
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-family: "Courier New", Courier, monospace;
+}
+pre {
+	text-align: left;
+	padding: 12px;
+	border: 1px solid var(--color-border);
+	overflow-x: auto;
+	/*white-space: pre-wrap;*/
+	white-space: pre-line;
+}
+pre code {
+	display: block;
+	line-height: 1.5;
+}
+
+/* default presets */
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-black {
+	color: #000000;
+}
+.text-white {
+	color: #ffffff;
+}
+.hide {
+	display: none;
+}
+.clean {
+	margin: 0px;
+	padding: 0px;
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	/*justify-content: center;
+	align-items: center;*/
+}
+.invers {
+	filter: grayscale(100%) invert(1);
+}
+.font-lg {
+	font-size: 1.4em;
+}
+.font-md {
+	font-size: 1.2em;
+}
+.font-sm {
+	font-size: 14px;
+}
+.blurb {
+	color: var(--color-text-secondary);
+}

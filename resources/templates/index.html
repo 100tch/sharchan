@@ -1,0 +1,207 @@
+{% extends "templates/default-layout.html" %}
+
+{% block body %}
+<div class="page-container">
+	<div id="header-content-home" class="header-content">
+		<h3>Automate process in the daily life of a programmer</h3>
+		<p class="font-md">sharchan provides features that will help you with the transfer of information and automation of any processes.</p>
+		<button class="button lg" onclick="location.href='/#howitwork'">Getting Started</button>
+	</div>
+	<section id="about">
+		<div class="row-container section-wrapper">
+			<div class="row-item text-left">
+				<h2>What is this?</h2>
+				<p class="font-lg blurb">sharchan is a simple and insecure file hosting service created as part of an educational project. It is mainly intended for transferring small files using HTTP requests, which means you can automate some things by making requests through scripts.</p>
+			</div>
+			<div class="row-item">
+				<img class="can-be-invers" src="/static/img/box.png" alt="ammo-box" />
+			</div>
+		</div>
+	</section>
+	<section id="features">
+		<div class="column-container section-wrapper">
+			<div class="row-container text-center">
+				<div class="row-item">
+					<h2>Features</h2>
+				</div>
+			</div>
+			<div class="row-container text-center">
+				<div class="row-item">
+					<img class="can-be-invers" src="/static/img/icon/opensource-icon.png" alt="opensource-icon" />
+					<h5>Open Source</h5>
+					<p class="blurb">Our solution being open source does not represent an advantage; it just means that users can not only use this service but also modify the source code and deploy it for personal use. The source code is available under the BSD 2-Clause license.</p>
+				</div>
+				<div class="row-item">
+					<img class="can-be-invers" src="/static/img/icon/api-icon.png" alt="api-icon" />
+					<h5>Simple API</h5>
+					<p class="blurb">We provide a simple and intuitive API that allows for easy integration of our solution into your workflows. With our API, you can automate tasks effectively.</p>
+				</div>
+				<div class="row-item">
+					<img class="can-be-invers" src="/static/img/icon/scissors-icon.png" alt="api-icon" />
+					<h5>Link Shortening</h5>
+					<p class="blurb">With our tool, you can easily shorten long links, making them more convenient for use and sharing. This is especially useful for social media, email newsletters, and other platforms where character limits apply.</p>
+				</div>
+				<div class="row-item">
+					<img class="can-be-invers" src="/static/img/icon/noads-icon.png" alt="noads-icon" />
+					<h5>No Ads</h5>
+					<p class="blurb">We value your time and attention, which is why our solution is completely ad-free. You can focus on your tasks without distractions.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="stats" class="bg-fill">
+		<div class="row-container section-wrapper text-center">
+			<div class="row-item">
+				<h3 class="can-be-format">{{total-api-requests}}</h3>
+				<h5>API requests executed</h5>
+			</div>
+			<div class="row-item">
+				<h3 class="can-be-format">{{file-count.total-non-deleted-files}}</h3>
+				<h5>Total files stored</h5>
+			</div>
+			<div class="row-item">
+				<h3 class="can-be-format">{{file-count.total-deleted-files}}</h3>
+				<h5>Total erased files</h5>
+			</div>
+		</div>
+	</section>
+	<section id="howitwork">
+		<div class="column-container section-wrapper">
+			<div class="row-container text-center">
+				<div class="row-item">
+					<h2>How it Work?</h2>
+				</div>
+			</div>
+			<div id="example-list">
+				<div class="row-container">
+					<div class="row-item flex-2">
+						<pre>
+	&lambda; curl -F 'file=@helloworld.txt' localhost:3000
+	/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
+	&lambda; curl localhost:3000/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
+	hello world</pre>
+					</div>
+					<div class="row-item flex-1 text-left">
+						<div>
+							<div class="font-lg">
+								<p>Using the first command we sent a POST request to upload the file <code>`helloworld.txt`</code> to the server. After that, we using the second command to retrived the contents of that file.</p>
+							</div>
+							<div class="bg-fill padding-box font-sm">
+								<p><strong>Note:</strong> The output from second command can be redirected to a new file by using the following syntax:<br /><code>curl localhost:3000/f/%some-hash% &gt; file.txt</code></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row-container">
+					<div class="row-item text-left">
+						<div>
+							<div class="font-lg">
+								<p>Instead of sending a POST request using the <code>`-F`</code> parameter, you can use the <code>`curl -T`</code> command to send a PUT request. This command allows you to upload a file to the server using the HTTP PUT method.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row-item">
+						<pre>
+	&lambda; curl -T yourfile.jpg localhost:3000 | tee</pre>
+					</div>
+				</div>
+				<div class="row-container">
+					<div class="row-item">
+						<pre>
+	&lambda; command | curl -T - http://localhost:3000</pre>
+					</div>
+					<div class="row-item text-left">
+						<div>
+							<div class="font-lg">
+								<p>You can also pipe input from another command directly into <code>`curl`</code> like this. In this case, the hyphen <code>`-`</code> signifies that <code>`curl`</code> should read from standard input. This way you can upload command output.</p>
+							</div>
+							<div class="bg-fill padding-box font-sm">
+								<p><strong>Note:</strong> You can also upload the output of a command, including any error messages from <code>`stderr`</code>, to the server using the following syntax:</p>
+								<div class="padding-box"><code>command 2&gt;&amp;1 | curl -T - http://localhost:3000</code></div>
+								<p>In this command, <code>`2&gt;&amp;1`</code> redirects <code>`stderr`</code> (file descriptor 2) to <code>`stdout`</code> (file descriptor 1), allowing both standard output and standard error to be sent through the pipe.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row-container">
+					<div class="row-item flex-1 font-lg text-left">
+						<p>Any of the three command will help you shorten the link and then use the shortened version to access the file. This can be useful when distributing the link.</p>
+					</div>
+					<div class="row-item flex-2">
+						<pre>
+	&lambda; curl -F 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
+	&lambda; curl -d 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
+	&lambda; curl -X POST http://localhost:3000/shorten -d 'url=http://localhost/%some-long-url%'</pre>
+					</div>
+				</div>
+			</div>
+			<div class="row-container text-center">
+				<div class="center-container">
+					<button class="button lg" onclick="location.href='https://github.com/{{links.github-username}}/{{links.github-proj-name}}/doc/'">
+						<span>Learn More</span>
+						<span class="icon arrow-right after"></span>
+					</button>
+				</div>
+			</div>
+			<div class="margin-set">
+				<div class="row-container text-center">
+					<div class="row-item">
+						<h2>Try It Yourself</h2>
+					</div>
+				</div>
+				<div class="row-container">
+					<div class="row-item">
+						<div class="center-container">
+							<form id="upload-form">
+								<input class="file-input-1" type="file" id="file" name="file" required />
+								<button class="button lg" type="submit">Upload</button>
+							</form>
+						</div>
+						<div class="center-container">
+							<div id="response-of-form">
+								<pre id="upload-status"></pre>
+								<pre id="upload-response"></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="margin-set">
+				<div class="row-container text-center">
+					<div class="row-item">
+						<h2>File Retention Period</h2>
+					</div>
+				</div>
+				<div id="grph-container" class="row-container">
+					<div class="row-item">
+						<canvas id="retention-grph" class="can-be-invers"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="feedback" class="bg-fill">
+		<div class="row-container section-wrapper">
+			<div class="row-item">
+				<img src="/static/img/radio.png" alt="phone-tube" />
+			</div>
+			<div class="row-item text-left">
+				<h4>Your Possible Feedback</h4>
+				<p>Everything is quite simple. There are two options:</p>
+				<ul>
+					<li>If you have any questions, suggestions, or requests, you can contact me on VKontakte.</li>
+					<li>In case you find any bugs or have suggestions for improving functionality, you can leave a bug report in the issues section on GitHub or submit a pull request with your changes.</li>
+				</ul>
+				<div class="buttons">
+					<a class="icon-button lg text-white" href="https://vk.com/{{links.vk-profile-id}}" target="_blank">
+						<span class="icon vk-white"></span>
+					</a>
+					<a class="icon-button lg text-white" href="https://github/{{links.github-username}}/{{links.github-proj-name}}/issues" target="_blank">
+						<span class="icon github-white"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}
