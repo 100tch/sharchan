@@ -48,18 +48,15 @@ html.dark-theme {
 	--color-text-secondary: #999999;
 	--shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
 }
-:root,
-:root .page-container :lang(en) {
+:root :lang(en) {
 	--font-family-for-headings: var(--font-family-poppins);
 	--font-family-for-copy: var(--font-family-merriweather);
 }
-:root,
-:root .page-container :lang(ru) {
+:root :lang(ru) {
 	--font-family-for-headings: var(--font-family-mulish);
 	--font-family-for-copy: var(--font-family-merriweather);
 }
-:root,
-:root .page-container :lang(en) {
+:root :lang(en) {
 	/* headings */
 	--font-h1: normal 800 60px/72px var(--font-family-for-headings);
 	--font-h1-spacing: -0.3px;
@@ -132,8 +129,7 @@ html.dark-theme {
 	--font-data-one: normal 600 48px/56px var(--font-family-for-headings);
 	--font-data-two: normal 600 40px/48px var(--font-family-for-headings);
 }
-:root,
-:root .page-container :lang(ru) {
+:root :lang(ru) {
 	/* headings */
 	--font-h1: normal 900 60px/72px var(--font-family-for-headings);
 	--font-h1-spacing: -0.3px;
@@ -208,8 +204,9 @@ html.dark-theme {
 }
 /* brackpoint m */
 @media screen and (min-width: 768px) and (max-width: 1080px) {
-	:root,
-	:root .page-container :lang(en) {
+	:root {
+	}
+	:root :lang(en) {
 		/* headings */
 		--font-h1: normal 800 48px/56px var(--font-family-for-headings);
 		--font-h1-spacing: -0.24px;
@@ -233,8 +230,7 @@ html.dark-theme {
 		--font-data-one: normal 600 40px/48px var(--font-family-for-headings);
 		--font-data-two: normal 600 32px/40px var(--font-family-for-headings);
 	}
-	:root,
-	:root .page-container :lang(ru) {
+	:root :lang(ru) {
 		/* headings */
 		--font-h1: normal 900 48px/56px var(--font-family-for-headings);
 		--font-h1-spacing: -0.24px;
@@ -261,8 +257,9 @@ html.dark-theme {
 }
 /* brackpoint s */
 @media screen and (min-width: 0px) and (max-width: 768px) {
-	:root,
-	:root .page-container :lang(en) {
+	:root {
+	}
+	:root :lang(en) {
 		/* headings */
 		--font-h1: normal 800 32px/40px var(--font-family-for-headings);
 		--font-h1-spacing: 0.08px;
@@ -286,8 +283,7 @@ html.dark-theme {
 		--font-data-one: normal 600 32px/40px var(--font-family-for-headings);
 		--font-data-two: normal 600 28px/36px var(--font-family-for-headings);
 	}
-	:root,
-	:root .page-container :lang(ru) {
+	:root :lang(ru) {
 		/* headings */
 		--font-h1: normal 900 32px/40px var(--font-family-for-headings);
 		--font-h1-spacing: 0.08px;
@@ -335,7 +331,6 @@ body {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 :is(h1, h2, h3, h4, h5, h6) {
-	/*font-family: var(--font-family-lato);*/
 	margin: 0;
 }
 h1 {

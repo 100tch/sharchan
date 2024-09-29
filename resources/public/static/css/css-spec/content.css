@@ -82,7 +82,6 @@
 	height: 900px;
 	padding: var(--spacing-7);
 }
-/*#about img { height: 34em; }*/
 #features img { width: 84px; }
 #example-list {
 	display: flex;
@@ -97,7 +96,6 @@
 #response-of-form pre:first-child { border-bottom: none; }
 #response-of-form pre { margin: 0; }
 #response-of-form.visible { opacity: 1; }
-/*#feedback img { height: 32em; }*/
 /* logo page */
 .logo-container {
 	display: flex;
