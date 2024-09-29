@@ -12,7 +12,8 @@
    :total-api-requests (total-api)
    :min-age (:min-days config)
    :max-age (:max-days config)
-   :max-size (apply * (:max-content-length config))})
+   :max-size (apply * (:max-content-length config))
+   :domain (:domain config)})
 
 (defn links-params []
   {:links (:sharchan-links config)})

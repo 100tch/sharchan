@@ -75,9 +75,9 @@
 			<div id="example-list">
 				<div class="row-container">
 					<div class="row-item flex-2">
-<pre>&lambda; curl -F 'file=@helloworld.txt' localhost:3000
+<pre>&lambda; curl -F 'file=@helloworld.txt' {{domain}} 
 /f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
-&lambda; curl localhost:3000/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
+&lambda; curl {{domain}}/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
 hello world</pre>
 					</div>
 					<div class="row-item flex-1 text-left">
@@ -86,7 +86,7 @@ hello world</pre>
 								<p>Using the first command we sent a POST request to upload the file <code>`helloworld.txt`</code> to the server. After that, we using the second command to retrived the contents of that file.</p>
 							</div>
 							<div class="bg-fill padding-box font-sm">
-								<p><strong>Note:</strong> The output from second command can be redirected to a new file by using the following syntax:<br /><code>curl localhost:3000/f/%some-hash% &gt; file.txt</code></p>
+								<p><strong>Note:</strong> The output from second command can be redirected to a new file by using the following syntax:<br /><code>curl {{domain}}/f/%some-hash% &gt; file.txt</code></p>
 							</div>
 						</div>
 					</div>
@@ -100,12 +100,12 @@ hello world</pre>
 						</div>
 					</div>
 					<div class="row-item">
-						<pre>&lambda; curl -T yourfile.jpg localhost:3000 | tee</pre>
+						<pre>&lambda; curl -T yourfile.jpg {{domain}} | tee</pre>
 					</div>
 				</div>
 				<div class="row-container">
 					<div class="row-item">
-						<pre>&lambda; command | curl -T - http://localhost:3000</pre>
+						<pre>&lambda; command | curl -T - {{domain}}</pre>
 					</div>
 					<div class="row-item text-left">
 						<div>
@@ -114,7 +114,7 @@ hello world</pre>
 							</div>
 							<div class="bg-fill padding-box font-sm">
 								<p><strong>Note:</strong> You can also upload the output of a command, including any error messages from <code>`stderr`</code>, to the server using the following syntax:</p>
-								<div class="padding-box"><code>command 2&gt;&amp;1 | curl -T - http://localhost:3000</code></div>
+								<div class="padding-box"><code>command 2&gt;&amp;1 | curl -T - {{domain}}</code></div>
 								<p>In this command, <code>`2&gt;&amp;1`</code> redirects <code>`stderr`</code> (file descriptor 2) to <code>`stdout`</code> (file descriptor 1), allowing both standard output and standard error to be sent through the pipe.</p>
 							</div>
 						</div>
@@ -125,15 +125,15 @@ hello world</pre>
 						<p>Any of the three command will help you shorten the link and then use the shortened version to access the file. This can be useful when distributing the link.</p>
 					</div>
 					<div class="row-item flex-2">
-<pre>&lambda; curl -F 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
-&lambda; curl -d 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
-&lambda; curl -X POST http://localhost:3000/shorten -d 'url=http://localhost/%some-long-url%'</pre>
+<pre>&lambda; curl -F 'url=http://{{domain}}/%some-long-url%' http://{{domain}}/shorten
+&lambda; curl -d 'url=http://{{domain}}/%some-long-url%' http://{{domain}}/shorten
+&lambda; curl -X POST http://{{domain}}/shorten -d 'url=http://{{domain}}/%some-long-url%'</pre>
 					</div>
 				</div>
 			</div>
 			<div class="row-container text-center">
 				<div class="center-container">
-					<button class="button lg" onclick="location.href='https://github.com/{{links.github-username}}/{{links.github-proj-name}}/doc/'">
+					<button class="button lg" onclick="location.href='https://github.com/{{links.github-username}}/{{links.github-proj-name}}/tree/master/doc/'">
 						<span>Learn More</span>
 						<span class="icon arrow-right after"></span>
 					</button>
@@ -195,7 +195,7 @@ hello world</pre>
 					<a class="icon-button lg text-white" href="https://vk.com/{{links.vk-profile-id}}" target="_blank">
 						<span class="icon vk-white"></span>
 					</a>
-					<a class="icon-button lg text-white" href="https://github/{{links.github-username}}/{{links.github-proj-name}}/issues" target="_blank">
+					<a class="icon-button lg text-white" href="https://github.com/{{links.github-username}}/{{links.github-proj-name}}/issues" target="_blank">
 						<span class="icon github-white"></span>
 					</a>
 				</div>

@@ -13,31 +13,26 @@ const formattableNumbers = document.querySelectorAll('.can-be-format');
 const header = document.querySelector('header');
 
 function formatNumber(num) {
-	return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function prepareTheme(isDark) {
-	// logo
-	logo.src = isDark
-		? '/static/img/logo/white-variant.png'
-		: '/static/img/logo/black-variant.png';
-
-	// theme icon
+	// theme icon and logo
 	if(isDark) {
-		themeIcon.classList.remove("sun");
-		themeIcon.classList.add("moon");
+		themeIcon.classList.remove('moon');
+		themeIcon.classList.add('sun');
+		logo.src = '/static/img/logo/white-variant.png';
 	} else {
-		themeIcon.classList.remove("moon");
-		themeIcon.classList.add("sun");
+		themeIcon.classList.remove('sun');
+		themeIcon.classList.add('moon');
+		logo.src = '/static/img/logo/black-variant.png';
 	}
-
 	// inversoble elements
 	if(inversobleElements != null) {
 		inversobleElements.forEach((element) => {
 			element.classList.toggle('invers', !isDark);
 		});
 	}
-
 	// graphic
 	if(grphCanvas != null) {
 		if(isDark) {
@@ -74,13 +69,17 @@ function loadChartJs(callback) {
 	document.body.appendChild(script);
 }
 
-// check theme in local storage
-const savedTheme = localStorage.getItem('theme');
-if(savedTheme) {
-	if(savedTheme == "dark")
-		prepareTheme(true);
-	else
-		prepareTheme(false);
+if(document.documentElement.classList.contains('dark-theme')) {
+	prepareTheme(true);
+} else {
+	// check theme in local storage
+	const savedTheme = localStorage.getItem('theme');
+	if(savedTheme) {
+		if(savedTheme == "dark")
+			prepareTheme(true);
+		else
+			prepareTheme(false);
+	}
 }
 
 // format numbers

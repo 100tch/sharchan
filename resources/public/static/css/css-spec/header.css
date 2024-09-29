@@ -96,6 +96,9 @@ header a:hover {
 	#menu-toggle {
 		display: block;
 	}
+	.header-button {
+		background-color: none;
+	}
 }
 @media screen and (min-width: 0px) and (max-width: 680px) {
 	header {

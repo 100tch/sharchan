@@ -9,3 +9,6 @@ dialog {
 	padding: var(--spacing-2);
 	font: var(--font-copy-lg);
 }
+.mobile-modal a {
+	color: #000000;
+}
