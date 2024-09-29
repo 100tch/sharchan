@@ -6,8 +6,12 @@ footer {
 footer a {
 	text-decoration: underline;
 }
+footer .row-item {
+	padding: var(--spacing-6);
+}
 .additional-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 20px;
 }

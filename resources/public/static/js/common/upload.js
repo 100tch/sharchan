@@ -1,11 +1,24 @@
 const form = document.getElementById('upload-form');
 
 if(form != null) {
-	form.addEventListener('submit', function(event) {
+	const uploadBtn = document.querySelector('#upload-form button');
+	const inputField = document.getElementById('file');
+
+	uploadBtn.addEventListener('click', () => {
+		inputField.value = '';
+		inputField.click();
+	});
+
+	inputField.addEventListener('change', () => {
+		if(inputField.files.length > 0) {
+			form.dispatchEvent(new Event('submit', { cancelable: true }));
+		}
+	});
+
+	form.addEventListener('submit', (event) => {
 		event.preventDefault();
 
-		const fileInput = document.getElementById('file');
-		const file = fileInput.files[0];
+		const file = inputField.files[0];
 		const responseBlock = document.getElementById('response-of-form');
 		const statusPre = document.getElementById('upload-status');
 		const responsePre = document.getElementById('upload-response');
@@ -41,10 +54,6 @@ if(form != null) {
 	});
 
 	function disableForm() {
-		const fileInput = document.getElementById('file');
-		const submitButton = document.querySelector('#upload-form button[type="submit"]');
-
-		fileInput.disabled = true;
-		submitButton.disabled = true;
+		uploadBtn.disabled = true;
 	}
 }

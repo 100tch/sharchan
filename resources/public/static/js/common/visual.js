@@ -3,10 +3,14 @@ const scrollBtn = document.getElementById('scroll-up');
 const themeBtn = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 const langBtn = document.getElementById('lang-toggle');
+const menuBtn = document.getElementById('menu-toggle');
+const closeDialogBtn = document.getElementById('close-dialog');
+const grphCanvas = document.getElementById('retention-grph');
+const dialogBlock = document.getElementById('overlay');
+
 const inversobleElements = document.querySelectorAll('.can-be-invers');
 const formattableNumbers = document.querySelectorAll('.can-be-format');
 const header = document.querySelector('header');
-const grphCanvas = document.getElementById('retention-grph');
 
 function formatNumber(num) {
 	return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -118,6 +122,16 @@ langBtn.onclick = () => {
 	const newUrl = `${window.location.origin}${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}${window.location.hash}`;
 	window.location.href = newUrl;
 }
+
+menuBtn.addEventListener('click', () => {
+	dialogBlock.showModal();
+	document.body.style.overflow = 'hidden';
+});
+
+closeDialogBtn.addEventListener('click', () => {
+	dialogBlock.close();
+	document.body.style.overflow = 'auto';
+});
 
 var grphLoaded = false;
 window.addEventListener('scroll', debounce(() => {

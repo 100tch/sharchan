@@ -2,18 +2,18 @@
 
 {% block body %}
 <div class="page-container">
-	<div id="header-content-home" class="header-content">
+	<div id="header-content-home" class="header-content text-center">
 		<h3>Автоматизируй процессы своей повседневной жизни</h3>
-		<p class="font-md">sharchan предоставляет функции, которые помогут вам с передачей информации и автоматизацией любых процессов.</p>
+		<p class="font-lg">sharchan предоставляет функции, которые помогут вам с передачей информации и автоматизацией любых процессов.</p>
 		<button class="button lg" onclick="location.href='/#howitwork'">Начать работу</button>
 	</div>
 	<section id="about">
 		<div class="row-container section-wrapper">
 			<div class="row-item text-left">
 				<h2>Что это такое?</h2>
-				<p class="font-lg blurb">sharchan — это простой и небезопасный файлообменник, созданный в рамках образовательного проекта. Он в основном предназначен для передачи небольших файлов с помощью HTTP-запросов, что означает, что вы можете автоматизировать некоторые вещи, делая запросы через скрипты.</p>
+				<p class="font-lg-x blurb">sharchan — это простой и небезопасный файлообменник, созданный в рамках образовательного проекта. В основном он предназначен для передачи небольших файлов с помощью HTTP-запросов, что означает, что вы можете автоматизировать некоторые вещи, делая запросы через скрипты.</p>
 			</div>
-			<div class="row-item">
+			<div class="row-item flex-1">
 				<img class="can-be-invers" src="/static/img/box.png" alt="ammo-box" />
 			</div>
 		</div>
@@ -75,15 +75,14 @@
 			<div id="example-list">
 				<div class="row-container">
 					<div class="row-item flex-2">
-						<pre>
-	&lambda; curl -F 'file=@helloworld.txt' localhost:3000
-	/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
-	&lambda; curl localhost:3000/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
-	hello world</pre>
+<pre>&lambda; curl -F 'file=@helloworld.txt' localhost:3000
+/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
+&lambda; curl localhost:3000/f/a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447
+hello world</pre>
 					</div>
 					<div class="row-item flex-1 text-left">
 						<div>
-							<div class="font-lg">
+							<div class="font-lg-x">
 								<p>С помощью первой команды мы отправили POST-запрос на загрузку файла <code>`helloworld.txt`</code> на сервер. После этого мы использовали вторую команду для извлечения содержимого этого файла.</p>
 							</div>
 							<div class="bg-fill padding-box font-sm">
@@ -95,24 +94,22 @@
 				<div class="row-container">
 					<div class="row-item text-left">
 						<div>
-							<div class="font-lg">
+							<div class="font-lg-x">
 								<p>Вместо отправки запроса POST с помощью параметра <code>`-F`</code>, вы можете использовать команду <code>`curl -T`</code> для отправки запроса PUT. Эта команда позволяет вам загрузить файл на сервер с помощью метода HTTP PUT.</p>
 							</div>
 						</div>
 					</div>
 					<div class="row-item">
-						<pre>
-	&lambda; curl -T yourfile.jpg localhost:3000 | tee</pre>
+						<pre>&lambda; curl -T yourfile.jpg localhost:3000 | tee</pre>
 					</div>
 				</div>
 				<div class="row-container">
 					<div class="row-item">
-						<pre>
-	&lambda; command | curl -T - http://localhost:3000</pre>
+						<pre>&lambda; command | curl -T - http://localhost:3000</pre>
 					</div>
 					<div class="row-item text-left">
 						<div>
-							<div class="font-lg">
+							<div class="font-lg-x">
 								<p>Вы также можете передать входные данные из другой команды напрямую в <code>`curl`</code>, как здесь. В этом случае дефис <code>`-`</code> означает, что <code>`curl`</code> должен считывать данные со стандартного ввода. Таким образом вы можете загрузить выходные данные команды.</p>
 							</div>
 							<div class="bg-fill padding-box font-sm">
@@ -124,14 +121,13 @@
 					</div>
 				</div>
 				<div class="row-container">
-					<div class="row-item flex-1 font-lg text-left">
+					<div class="row-item flex-1 font-lg-x text-left">
 						<p>Любая из трех команд поможет вам сократить ссылку и затем использовать сокращенную версию для доступа к файлу. Это может быть полезно при распространении ссылки.</p>
 					</div>
 					<div class="row-item flex-2">
-						<pre>
-	&lambda; curl -F 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
-	&lambda; curl -d 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
-	&lambda; curl -X POST http://localhost:3000/shorten -d 'url=http://localhost/%some-long-url%'</pre>
+<pre>&lambda; curl -F 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
+&lambda; curl -d 'url=http://localhost/%some-long-url%' http://localhost:3000/shorten
+&lambda; curl -X POST http://localhost:3000/shorten -d 'url=http://localhost/%some-long-url%'</pre>
 					</div>
 				</div>
 			</div>
@@ -152,9 +148,12 @@
 				<div class="row-container">
 					<div class="row-item">
 						<div class="center-container">
-							<form id="upload-form">
-								<input class="file-input-1" type="file" id="file" name="file" required />
-								<button class="button lg" type="submit">Загрузить</button>
+							<form id="upload-form" method="POST" enctype="multipart/form-data">
+								<button class="button md file-upload">
+									<span>Выберите файл&hellip;</span>
+									<span class="icon share after"></span>
+								</button>
+								<input type="file" id="file" name="file" class="hidden" />
 							</form>
 						</div>
 						<div class="center-container">

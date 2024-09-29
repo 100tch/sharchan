@@ -8,6 +8,9 @@
 	--icon-moon: url("/static/img/icon/svg/moon-icon.svg");
 	--icon-sun: url("/static/img/icon/svg/sun-icon.svg");
 	--icon-globe: url("/static/img/icon/svg/globe-icon.svg");
+	--icon-share: url("/static/img/icon/svg/share-icon.svg");
+	--icon-menu: url("/static/img/icon/svg/menu-icon.svg");
+	--icon-x: url("/static/img/icon/svg/x-icon.svg");
 }
 .icon-box {
 	--icon-size: 24px;
@@ -63,4 +66,16 @@
 .icon.globe {
 	mask-image: var(--icon-globe);
 	-webkit-mask-image: var(--icon-globe);
+}
+.icon.share {
+	mask-image: var(--icon-share);
+	-webkit-mask-image: var(--icon-share);
+}
+.icon.menu {
+	mask-image: var(--icon-menu);
+	-webkit-mask-image: var(--icon-menu);
+}
+.icon.x {
+	mask-image: var(--icon-x);
+	-webkit-mask-image: var(--icon-x);
 }

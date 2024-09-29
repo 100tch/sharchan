@@ -27,7 +27,10 @@
 	padding: var(--btn-padding);
 }
 .button:disabled {
+	background-color: var(--color-text-secondary-dr);
 	cursor: default;
+}
+.button:hover:disabled {
 	transform: none;
 }
 .button:hover {

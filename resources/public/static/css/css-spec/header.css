@@ -3,15 +3,14 @@ header {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 300px;
-	transition: all 0.3s ease;
+	transition: var(--transition-all);
 	background-color: var(--color-background);
 }
 header nav {
 	display: flex;
 	justify-content: center;
-	font-size: 21px;
-	margin-top: 20px;
+	font: var(--font-copy-lg-x);
+	margin-top: var(--spacing-6); 
 }
 header nav span:after {
 	margin-right: 10px;
@@ -19,7 +18,7 @@ header nav span:after {
 	content: "|";
 }
 header nav span:last-child:after {
-	content: "";
+	content: none;
 }
 header a {
 	font-weight: bold;
@@ -33,11 +32,14 @@ header a:hover {
 .header-buttons {
 	display: flex;
 	flex-direction: row-reverse;
-	margin-right: 10px;
+	margin-bottom: var(--spacing-4);
 	width: 100%;
 }
 .header-buttons button {
-	margin-right: 8px;
+	margin-right: var(--spacing-3);
+}
+.header-buttons button:first-child {
+	margin-right: var(--spacing-5);
 }
 .header-button {
 	background-color: transparent;
@@ -51,10 +53,11 @@ header a:hover {
 	color: #ffffff;
 	transform: scale(1.05);
 }
-#scroll-up {
+#scroll-up, #menu-toggle {
 	display: none;
 }
 #main-logo {
+	margin-top: var(--spacing-4);
 	height: 200px;
 	transition: height 0.3s ease;
 }
@@ -69,12 +72,39 @@ header a:hover {
 }
 .scrolled #main-logo {
 	height: 34px;
-	margin-left: 2em;
+	margin-top: 0;
+	margin-left: var(--spacing-8);
 	transition: none;
 }
 .scrolled nav {
-	font-size: 18px;
+	font: var(--font-copy-lg);
 	flex-direction: row;
-	margin-top: 0px;
-	margin-left: 2em;
+	margin-top: 0;
+	margin-left: var(--spacing-8);
+}
+.scrolled .header-buttons {
+	margin-bottom: 0;
+}
+/* breakpoints S - M */
+@media screen and (min-width: 0px) and (max-width: 1080px) {
+	#main-logo {
+		height: 100px;
+	}
+	header nav {
+		display: none;
+	}
+	#menu-toggle {
+		display: block;
+	}
+}
+@media screen and (min-width: 0px) and (max-width: 680px) {
+	header {
+		flex-direction: column-reverse;
+	}
+	header:not(.scrolled) #main-logo {
+		margin-bottom: var(--spacing-4);
+	}
+	header:not(.scrolled) .header-buttons {
+		margin-top: var(--spacing-4);
+	}
 }

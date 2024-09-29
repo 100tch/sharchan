@@ -6,4 +6,11 @@
   (with-open [r (io/reader "config.edn")]
     (edn/read-string (slurp r))))
 
-(def config (load-config))
+(defn check-config []
+  (if (.exists (io/file "config.edn"))
+    (load-config)
+    (do
+      (println "file 'config.edn' not found.")
+      (System/exit 1))))
+
+(def config (check-config))

@@ -35,6 +35,7 @@
 			<span><a href="/#feedback">feedback</a></span>
 		</nav>
 		<div class="header-buttons">
+			<button id="menu-toggle" class="icon-button sm header-button"><span id="menu-icon" class="icon menu"></span></button>
 			<button id="theme-toggle" class="icon-button sm header-button"><span id="theme-icon" class="icon moon"></span></button>
 			<button id="lang-toggle" class="icon-button sm header-button"><span class="icon globe"></span></button>
 			<button id="scroll-up" class="icon-button sm header-button"><span id="scroll-up-icon" class="icon arrow-up"></span></button>
@@ -47,17 +48,29 @@
 	</main>
 
 	<footer>
-		<div class="container">
-			<p>sharchan is released under the <a href="https://opensource.org/license/BSD-2-Clause">BSD 2-Clause</a> license. Get and use the <a href="/logo">sharchan logo</a>. More useful links below.</p>
-		</div>
-		<div class="additional-container">
-			<span><a href="https://github.com/{{links.github-username}}/{{links.github-proj-name}}" target="_blank">github</a></span>
-			<span><a href="https://vk.com/{{links.vk-profile-id}}" target="_blank">vk</a></span>
-			<span><a href="/policy">policy</a></span>
-			<span><a href="/sitemap.xml">sitemap.xml</a></span>
-			<span><a href="/robots.txt">robots.txt</a></span>
+		<div class="row-container">
+			<div class="row-item">
+				<p class="text-center">sharchan is released under the <a href="https://opensource.org/license/BSD-2-Clause">BSD 2-Clause</a> license. Get and use the <a href="/logo">sharchan logo</a>. More useful links below.</p>
+				<div class="additional-container">
+					<span><a href="https://github.com/{{links.github-username}}/{{links.github-proj-name}}" target="_blank">github</a></span>
+					<span><a href="https://vk.com/{{links.vk-profile-id}}" target="_blank">vk</a></span>
+					<span><a href="/policy">policy</a></span>
+					<span><a href="/sitemap.xml">sitemap.xml</a></span>
+					<span><a href="/robots.txt">robots.txt</a></span>
+				</div>
+			</div>
 		</div>
 	</footer>
+	<dialog id="overlay">
+		<button id="close-dialog" class="icon-button sm"><span id="x-icon" class="icon x"></span></button>
+		<nav class="mobile-modal">
+			<span><a href="/#about">about</a></span>
+			<span><a href="/#features">features</a></span>
+			<span><a href="/#stats">stats</a></span>
+			<span><a href="/#howitwork">howitwork</a></span>
+			<span><a href="/#feedback">feedback</a></span>
+		</nav>
+	</dialog>
 
 	<!-- JS -->
 	<script type="application/json" id="initial-data">

@@ -80,6 +80,8 @@ html.dark-theme {
 	--font-h6-spacing: 0.0025em;
 
 	/* body copy */
+	--font-copy-lg-x: normal normal 22px/32px var(--font-family-for-copy);
+	--font-copy-lg-x-bold: normal bold 22px/32px var(--font-family-for-copy);
 	--font-copy-lg: normal normal 18px/28px var(--font-family-for-copy);
 	--font-copy-lg-bold: normal bold 18px/28px var(--font-family-for-copy);
 	--font-copy-md: normal normal 16px/24px var(--font-family-for-copy);
@@ -152,6 +154,8 @@ html.dark-theme {
 	--font-h6-spacing: 0.0025em;
 
 	/* body copy */
+	--font-copy-lg-x: normal normal 22px/32px var(--font-family-for-copy);
+	--font-copy-lg-x-bold: normal bold 22px/32px var(--font-family-for-copy);
 	--font-copy-lg: normal normal 18px/28px var(--font-family-for-copy);
 	--font-copy-lg-bold: normal bold 18px/28px var(--font-family-for-copy);
 	--font-copy-md: normal normal 16px/24px var(--font-family-for-copy);
@@ -232,17 +236,17 @@ html.dark-theme {
 	:root,
 	:root .page-container :lang(ru) {
 		/* headings */
-		--font-h1: normal 800 48px/56px var(--font-family-for-headings);
+		--font-h1: normal 900 48px/56px var(--font-family-for-headings);
 		--font-h1-spacing: -0.24px;
-		--font-h2: normal 700 40px/48px var(--font-family-for-headings);
+		--font-h2: normal 900 40px/48px var(--font-family-for-headings);
 		--font-h2-spacing: 0;
-		--font-h3: normal 700 32px/40px var(--font-family-for-headings);
+		--font-h3: normal 900 32px/40px var(--font-family-for-headings);
 		--font-h3-spacing: 0.08px;
-		--font-h4: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h4: normal 900 24px/28px var(--font-family-for-headings);
 		--font-h4-spacing: 0;
-		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5: normal 900 20px/24px var(--font-family-for-headings);
 		--font-h5-spacing: 0.05px;
-		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6: normal 700 18px/24px var(--font-family-for-headings);
 		--font-h6-spacing: 0;
 
 		/* quotation */
@@ -285,17 +289,17 @@ html.dark-theme {
 	:root,
 	:root .page-container :lang(ru) {
 		/* headings */
-		--font-h1: normal 800 32px/40px var(--font-family-for-headings);
+		--font-h1: normal 900 32px/40px var(--font-family-for-headings);
 		--font-h1-spacing: 0.08px;
-		--font-h2: normal 700 28px/36px var(--font-family-for-headings);
+		--font-h2: normal 900 28px/36px var(--font-family-for-headings);
 		--font-h2-spacing: 0;
-		--font-h3: normal 700 24px/28px var(--font-family-for-headings);
+		--font-h3: normal 900 24px/28px var(--font-family-for-headings);
 		--font-h3-spacing: 0.12px;
-		--font-h4: normal 700 22px/26px var(--font-family-for-headings);
+		--font-h4: normal 900 22px/26px var(--font-family-for-headings);
 		--font-h4-spacing: 0;
-		--font-h5: normal 700 20px/24px var(--font-family-for-headings);
+		--font-h5: normal 900 20px/24px var(--font-family-for-headings);
 		--font-h5-spacing: 0.05px;
-		--font-h6: normal 600 18px/24px var(--font-family-for-headings);
+		--font-h6: normal 700 18px/24px var(--font-family-for-headings);
 		--font-h6-spacing: 0;
 
 		/* quotation */
@@ -308,7 +312,6 @@ html.dark-theme {
 		--font-data-two: normal 600 28px/36px var(--font-family-for-headings);
 	}
 }
-
 /* normalize css */
 *, input, ::before, ::after {
 	-webkit-box-sizing: border-box;
@@ -328,6 +331,7 @@ body {
 	background-color: var(--color-background);
 	color: var(--color-text);
 	word-wrap: break-word;
+	overflow: auto;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 :is(h1, h2, h3, h4, h5, h6) {
@@ -390,8 +394,8 @@ pre {
 	padding: 12px;
 	border: 1px solid var(--color-border);
 	overflow-x: auto;
-	/*white-space: pre-wrap;*/
-	white-space: pre-line;
+	white-space: pre-wrap;
+	word-break: break-word;
 }
 pre code {
 	display: block;
@@ -420,8 +424,8 @@ pre code {
 .text-white {
 	color: #ffffff;
 }
-.hide {
-	display: none;
+.hidden {
+	display: none !important;
 }
 .clean {
 	margin: 0px;
@@ -437,15 +441,16 @@ pre code {
 .invers {
 	filter: grayscale(100%) invert(1);
 }
-.font-lg {
-	font-size: 1.4em;
+.font-lg-x {
+	font: var(--font-copy-lg-x);
 }
-.font-md {
-	font-size: 1.2em;
+.font-lg {
+	font: var(--font-copy-lg);
 }
 .font-sm {
-	font-size: 14px;
+	font: var(--font-copy-sm);
 }
 .blurb {
 	color: var(--color-text-secondary);
+	margin-bottom: var(--spacing-8);
 }
