@@ -59,10 +59,11 @@
 
 ;; translations
 (defn load-translations [lang]
-  (let [filepath (str "resources/locales/" lang ".edn")]
-    (if (.exists (io/file filepath))
-      (edn/read-string (slurp filepath))
-      (edn/read-string (slurp "resources/locales/en.edn")))))
+  (let [filepath (str "locales/" lang ".edn")]
+    (let [resource (io/resource filepath)]
+      (if resource
+        (edn/read-string (slurp resource))
+        (edn/read-string (slurp (io/resource "locales/en.edn")))))))
 
 (defn get-translation [lang page]
   (let [translations (load-translations lang)

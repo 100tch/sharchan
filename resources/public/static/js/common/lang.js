@@ -19,8 +19,8 @@ langBtn.onclick = () => {
 document.addEventListener("DOMContentLoaded", () => {
 	const langParam = new URLSearchParams(window.location.search).get('lang');
 	if(langParam) {
-		const headerLinks = document.querySelectorAll('.takes-parameters');
-		headerLinks.forEach(link => {
+		const convertableLinks = document.querySelectorAll('.takes-parameters');
+		convertableLinks.forEach(link => {
 			const url = new URL(link.href);
 			url.searchParams.set('lang', langParam);
 			link.href = url.toString();
