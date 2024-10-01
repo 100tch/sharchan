@@ -49,8 +49,6 @@ header a:hover {
 	transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 .header-button:hover {
-	background-color: var(--color-border);
-	color: #ffffff;
 	transform: scale(1.05);
 }
 #scroll-up, #menu-toggle {
@@ -95,9 +93,6 @@ header a:hover {
 	}
 	#menu-toggle {
 		display: block;
-	}
-	.header-button:hover {
-		background-color: transparent;
 	}
 }
 @media screen and (min-width: 0px) and (max-width: 680px) {

@@ -3,18 +3,18 @@
 {% block body %}
 <div class="page-container">
 	<div id="header-content-home" class="header-content text-center">
-		<h3>Automate your process in the daily life</h3>
-		<p class="font-lg">sharchan provides features that will help you with the transfer of information and automation of any processes.</p>
-		<button class="button lg" onclick="location.href='/#howitwork'">Getting Started</button>
+		<h3>{{main/automate-heading}}</h3>
+		<p class="font-lg">{{main/automate-description}}</p>
+		<button class="button lg" onclick="location.href='/#howitwork'">{{main/getting-started-button}}</button>
 	</div>
 	<section id="about">
 		<div class="row-container section-wrapper">
 			<div class="row-item text-left">
-				<h2>What is this?</h2>
-				<p class="font-lg-x blurb">sharchan is a simple and insecure file hosting service created as part of an educational project. It is mainly intended for transferring small files using HTTP requests, which means you can automate some things by making requests through scripts.</p>
+				<h2>{{about/heading}}</h2>
+				<p class="font-lg-x blurb">{{about/description}}</p>
 			</div>
 			<div class="row-item flex-1">
-				<img class="can-be-invers" src="/static/img/box.png" alt="ammo-box" />
+				<img class="can-be-invers" src="/static/img/box.png" alt="{{about/img-alt}}" />
 			</div>
 		</div>
 	</section>
@@ -22,29 +22,29 @@
 		<div class="column-container section-wrapper">
 			<div class="row-container text-center">
 				<div class="row-item">
-					<h2>Features</h2>
+					<h2>{{features/heading}}</h2>
 				</div>
 			</div>
 			<div class="row-container text-center">
 				<div class="row-item">
 					<img class="can-be-invers" src="/static/img/icon/opensource-icon.png" alt="opensource-icon" />
-					<h5>Open Source</h5>
-					<p class="blurb">Our solution being open source does not represent an advantage; it just means that users can not only use this service but also modify the source code and deploy it for personal use. The source code is available under the BSD 2-Clause license.</p>
+					<h5>{{features/opensource/heading}}</h5>
+					<p class="blurb">{{features/opensource/description}}</p>
 				</div>
 				<div class="row-item">
 					<img class="can-be-invers" src="/static/img/icon/api-icon.png" alt="api-icon" />
-					<h5>Simple API</h5>
-					<p class="blurb">We provide a simple and intuitive API that allows for easy integration of our solution into your workflows. With our API, you can automate tasks effectively.</p>
+					<h5>{{features/api/heading}}</h5>
+					<p class="blurb">{{features/api/description}}</p>
 				</div>
 				<div class="row-item">
 					<img class="can-be-invers" src="/static/img/icon/scissors-icon.png" alt="api-icon" />
-					<h5>Link Shortening</h5>
-					<p class="blurb">With our tool, you can easily shorten long links, making them more convenient for use and sharing. This is especially useful for social media, email newsletters, and other platforms where character limits apply.</p>
+					<h5>{{features/link-shortening/heading}}</h5>
+					<p class="blurb">{{features/link-shortening/description}}</p>
 				</div>
 				<div class="row-item">
 					<img class="can-be-invers" src="/static/img/icon/noads-icon.png" alt="noads-icon" />
-					<h5>No Ads</h5>
-					<p class="blurb">We value your time and attention, which is why our solution is completely ad-free. You can focus on your tasks without distractions.</p>
+					<h5>{{features/no-ads/heading}}</h5>
+					<p class="blurb">{{features/no-ads/description}}</p>
 				</div>
 			</div>
 		</div>
@@ -53,15 +53,15 @@
 		<div class="row-container section-wrapper text-center">
 			<div class="row-item">
 				<h3 class="can-be-format">{{total-api-requests}}</h3>
-				<h5>API requests executed</h5>
+				<h5>{{stats/api-requests}}</h5>
 			</div>
 			<div class="row-item">
 				<h3 class="can-be-format">{{file-count.total-non-deleted-files}}</h3>
-				<h5>Total files stored</h5>
+				<h5>{{stats/total-files}}</h5>
 			</div>
 			<div class="row-item">
 				<h3 class="can-be-format">{{file-count.total-deleted-files}}</h3>
-				<h5>Total erased files</h5>
+				<h5>{{stats/erased-files}}</h5>
 			</div>
 		</div>
 	</section>
@@ -69,7 +69,7 @@
 		<div class="column-container section-wrapper">
 			<div class="row-container text-center">
 				<div class="row-item">
-					<h2>How it Work?</h2>
+					<h2>{{howitworks/heading}}</h2>
 				</div>
 			</div>
 			<div id="example-list">
@@ -83,10 +83,10 @@ hello world</pre>
 					<div class="row-item flex-1 text-left">
 						<div>
 							<div class="font-lg-x">
-								<p>Using the first command we sent a POST request to upload the file <code>`helloworld.txt`</code> to the server. After that, we using the second command to retrived the contents of that file.</p>
+								<p>{{howitworks/post-command-description|safe}}</p>
 							</div>
 							<div class="bg-fill padding-box font-sm">
-								<p><strong>Note:</strong> The output from second command can be redirected to a new file by using the following syntax:<br /><code>curl {{domain}}/f/%some-hash% &gt; file.txt</code></p>
+								<p>{{howitworks/post-command-note|safe}}<br /><code>curl {{domain}}/f/%some-hash% &gt; file.txt</code></p>
 							</div>
 						</div>
 					</div>
@@ -95,7 +95,7 @@ hello world</pre>
 					<div class="row-item text-left">
 						<div>
 							<div class="font-lg-x">
-								<p>Instead of sending a POST request using the <code>`-F`</code> parameter, you can use the <code>`curl -T`</code> command to send a PUT request. This command allows you to upload a file to the server using the HTTP PUT method.</p>
+								<p>{{howitworks/put-command-description|safe}}</p>
 							</div>
 						</div>
 					</div>
@@ -110,19 +110,19 @@ hello world</pre>
 					<div class="row-item text-left">
 						<div>
 							<div class="font-lg-x">
-								<p>You can also pipe input from another command directly into <code>`curl`</code> like this. In this case, the hyphen <code>`-`</code> signifies that <code>`curl`</code> should read from standard input. This way you can upload command output.</p>
+								<p>{{howitworks/piping-description|safe}}</p>
 							</div>
 							<div class="bg-fill padding-box font-sm">
-								<p><strong>Note:</strong> You can also upload the output of a command, including any error messages from <code>`stderr`</code>, to the server using the following syntax:</p>
+								<p>{{howitworks/piping-note-first|safe}}</p>
 								<div class="padding-box"><code>command 2&gt;&amp;1 | curl -T - {{domain}}</code></div>
-								<p>In this command, <code>`2&gt;&amp;1`</code> redirects <code>`stderr`</code> (file descriptor 2) to <code>`stdout`</code> (file descriptor 1), allowing both standard output and standard error to be sent through the pipe.</p>
+								<p>{{hotitworks/piping-note-second|safe}}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row-container">
 					<div class="row-item flex-1 font-lg-x text-left">
-						<p>Any of the three command will help you shorten the link and then use the shortened version to access the file. This can be useful when distributing the link.</p>
+						<p>{{howitworks/shortening-description}}</p>
 					</div>
 					<div class="row-item flex-2">
 <pre>&lambda; curl -F 'url=http://{{domain}}/%some-long-url%' http://{{domain}}/shorten
@@ -134,7 +134,7 @@ hello world</pre>
 			<div class="row-container text-center">
 				<div class="center-container">
 					<button class="button lg" onclick="location.href='https://github.com/{{links.github-username}}/{{links.github-proj-name}}/tree/master/doc/'">
-						<span>Learn More</span>
+						<span>{{howitworks/learn-more-button}}&hellip;</span>
 						<span class="icon arrow-right after"></span>
 					</button>
 				</div>
@@ -142,7 +142,7 @@ hello world</pre>
 			<div class="margin-set">
 				<div class="row-container text-center">
 					<div class="row-item">
-						<h2>Try It Yourself</h2>
+						<h2>{{tryit/heading}}</h2>
 					</div>
 				</div>
 				<div class="row-container">
@@ -150,7 +150,7 @@ hello world</pre>
 						<div class="center-container">
 							<form id="upload-form" method="POST" enctype="multipart/form-data">
 								<button class="button md file-upload">
-									<span>Choose a file&hellip;</span>
+									<span>{{tryit/file-upload-button}}</span>
 									<span class="icon share after"></span>
 								</button>
 								<input type="file" id="file" name="file" class="hidden" />
@@ -168,7 +168,7 @@ hello world</pre>
 			<div class="margin-set">
 				<div class="row-container text-center">
 					<div class="row-item">
-						<h2>File Retention Period</h2>
+						<h2>{{retention/heading}}</h2>
 					</div>
 				</div>
 				<div id="grph-container" class="row-container">
@@ -185,11 +185,11 @@ hello world</pre>
 				<img src="/static/img/radio.png" alt="phone-tube" />
 			</div>
 			<div class="row-item text-left">
-				<h4>Your Possible Feedback</h4>
-				<p>Everything is quite simple. There are two options:</p>
+				<h4>{{feedback/heading}}</h4>
+				<p>{{feedback/description}}</p>
 				<ul>
-					<li>If you have any questions, suggestions, or requests, you can contact me on VKontakte.</li>
-					<li>In case you find any bugs or have suggestions for improving functionality, you can leave a bug report in the issues section on GitHub or submit a pull request with your changes.</li>
+					<li>{{feedback/option-1}}</li>
+					<li>{{feedback/option-2}}</li>
 				</ul>
 				<div class="buttons">
 					<a class="icon-button lg text-white" href="https://vk.com/{{links.vk-profile-id}}" target="_blank">

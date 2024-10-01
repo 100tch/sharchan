@@ -3,12 +3,12 @@
 {% block body %}
 <div class="page-container">
 	<div class="header-content">
-		<h4>Design Bundle</h4>
+		<h4>{{main/logo-heading}}</h4>
 	</div>
 	<div class="row-container">
 		<div class="row-item">
-			<h5>Logo</h5>
-			<p>Only these logos are official, any modified of the logo do not belong to us and are not ours.</p>
+			<h5>{{main/logo-preview-heading}}</h5>
+			<p>{{main/logo-preivew-description}}</p>
 			<div class="center-container">
 				<div class="column-container" style="width:65%">
 					<div class="logo-item preview-background-dark">
@@ -20,8 +20,8 @@
 				</div>
 			</div>
 
-			<h5>Colors</h5>
-			<p>The colors below are used on this site.</p>
+			<h5>{{main/colors-heading}}</h5>
+			<p>{{main/colors-description}}</p>
 			<div class="grid-color-container">
 				<div class="grid-color-item text-white" style="background-color:#000000;">
 					<h6>Black (text, bg)</h6>
@@ -60,10 +60,10 @@
 				</div>
 			</div>
 
-			<h5>Bundle</h5>
-			<p>You can download a bundle with all our logos.</p>
+			<h5>{{main/bundle-heading}}</h5>
+			<p>{{main/bundle-description}}</p>
 			<div class="center-container">
-				<button class="button lg">Download</button>
+				<button class="button lg">{{main/bundle-button}}</button>
 			</div>
 		</div>
 	</div>

@@ -1,8 +1,14 @@
 {% extends "templates/default-layout.html" %}
 
 {% block body %}
-<div class="container">
-	<img id="not-found-pic" src="/static/img/not-found/{{pic-index}}.jpg" alt="not-found-pic">
-	<code>404 Not Found</code>
+<div class="page-container">
+	<div class="column-container">
+		<div class="row-item">
+			<img id="not-found-pic" src="/static/img/not-found/{{pic-index}}.jpg" alt="not-found-pic">
+		</div>
+		<div class="center-container">
+			<code>404 Not Found</code>
+		</div>
+	</div>
 </div>
 {% endblock %}

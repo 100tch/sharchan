@@ -5,7 +5,7 @@
             [sharchan.handlers :refer :all]
             [sharchan.db :refer [count-files total-api update-metric]]
             [sharchan.config :refer [config]]
-            [sharchan.util :refer [random-in-range]]))
+            [sharchan.util :refer [random-in-range get-translation]]))
 
 (defn common-params []
   {:file-count (count-files)
@@ -13,29 +13,23 @@
    :min-age (:min-days config)
    :max-age (:max-days config)
    :max-size (apply * (:max-content-length config))
-   :domain (:domain config)})
+   :domain (:domain config)
+   :links (:sharchan-links config)})
 
-(defn links-params []
-  {:links (:sharchan-links config)})
+(defn render-page [lang page template-path additional-params]
+  (let [translation (get-translation (or lang "en") page)]
+    (render-file template-path (merge translation additional-params))))
 
 ;; routes and handlers
 (defroutes app-routes
   (GET  "/"            [lang]
-       (let [template-path (case lang
-                             "ru" "templates/ru/index.html"
-                             "templates/index.html")]
-         (render-file template-path (merge
-                                      {:title-prefix "homepage"}
-                                      (common-params)
-                                      (links-params)))))
+       (render-page lang :index "templates/index.html" (common-params)))
 
-  (GET  "/policy"      [] (render-file "templates/policy.html" (merge
-                                                                 {:title-prefix "policy"}
-                                                                 (links-params))))
+  (GET  "/policy"      [lang]
+       (render-page lang :policy "templates/policy.html" {:links (:sharchan-links config)}))
 
-  (GET  "/logo"        [] (render-file "templates/logo.html" (merge
-                                                               {:title-prefix "logo"}
-                                                               (links-params))))
+  (GET  "/logo"        [lang]
+       (render-page lang :logo "templates/logo.html" {:links (:sharchan-links config)}))
 
   (GET  "/robots.txt"  [] robots-handler)
 

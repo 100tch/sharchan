@@ -4,10 +4,10 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="keywords" content="sharchan, file, file-sharing" />
-	<meta name="description" content="" />
-	<meta name="author" content="unknown" />
-	<title>{{title-prefix}} | sharchan</title>
+	<meta name="keywords" content="{{meta/keywords}}" />
+	<meta name="description" content="{{meta/description}}" />
+	<meta name="author" content="{{meta/author}}" />
+	<title>{{meta/title-prefix}} | sharchan</title>
 
 	<!-- GRAPH PROTOCOL -->
 	<meta property="og:site_name" content="sharchan" />
@@ -24,15 +24,15 @@
 </head>
 <body class="wrapper">
 	<header>
-		<a href="/">
-			<img id="main-logo" src="/static/img/logo/black-variant.png" alt="logo" />
+		<a href="/" class="takes-parameters">
+			<img id="main-logo" src="/static/img/logo/black-variant.png" alt="{{header/logo-alt}}" />
 		</a>
 		<nav>
-			<span><a href="/#about">about</a></span>
-			<span><a href="/#features">features</a></span>
-			<span><a href="/#stats">stats</a></span>
-			<span><a href="/#howitwork">howitwork</a></span>
-			<span><a href="/#feedback">feedback</a></span>
+			<span><a href="/#about" class="takes-parameters">{{header/nav/about}}</a></span>
+			<span><a href="/#features" class="takes-parameters">{{header/nav/features}}</a></span>
+			<span><a href="/#stats" class="takes-parameters">{{header/nav/stats}}</a></span>
+			<span><a href="/#howitwork" class="takes-parameters">{{header/nav/howitwork}}</a></span>
+			<span><a href="/#feedback" class="takes-parameters">{{header/nav/feedback}}</a></span>
 		</nav>
 		<div class="header-buttons">
 			<button id="menu-toggle" class="icon-button sm header-button"><span id="menu-icon" class="icon menu"></span></button>
@@ -50,11 +50,11 @@
 	<footer>
 		<div class="row-container">
 			<div class="row-item">
-				<p class="text-center">sharchan is released under the <a href="https://opensource.org/license/BSD-2-Clause">BSD 2-Clause</a> license. Get and use the <a href="/logo">sharchan logo</a>. More useful links below.</p>
+				<p class="text-center">{{footer/description|safe}}</p>
 				<div class="additional-container">
 					<span><a href="https://github.com/{{links.github-username}}/{{links.github-proj-name}}" target="_blank">github</a></span>
 					<span><a href="https://vk.com/{{links.vk-profile-id}}" target="_blank">vk</a></span>
-					<span><a href="/policy">policy</a></span>
+					<span><a href="/policy" class="takes-parameters">policy</a></span>
 					<span><a href="/sitemap.xml">sitemap.xml</a></span>
 					<span><a href="/robots.txt">robots.txt</a></span>
 				</div>
@@ -64,11 +64,11 @@
 	<dialog id="overlay">
 		<button id="close-dialog" class="icon-button sm"><span id="x-icon" class="icon x"></span></button>
 		<nav class="mobile-modal">
-			<span><a href="/#about">about</a></span>
-			<span><a href="/#features">features</a></span>
-			<span><a href="/#stats">stats</a></span>
-			<span><a href="/#howitwork">howitwork</a></span>
-			<span><a href="/#feedback">feedback</a></span>
+			<span><a href="/#about" class="takes-parameters">{{header/nav/about}}</a></span>
+			<span><a href="/#features" class="takes-parameters">{{header/nav/features}}</a></span>
+			<span><a href="/#stats" class="takes-parameters">{{header/nav/stats}}</a></span>
+			<span><a href="/#howitwork" class="takes-parameters">{{header/nav/howitwork}}</a></span>
+			<span><a href="/#feedback" class="takes-parameters">{{header/nav/feedback}}</a></span>
 		</nav>
 	</dialog>
 

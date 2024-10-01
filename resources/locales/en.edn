@@ -1,0 +1,121 @@
+{
+  :common {
+          ;; header
+          :header/logo-alt "logo"
+          :header/nav/about "about"
+          :header/nav/features "features"
+          :header/nav/stats "stats"
+          :header/nav/howitwork "howitworks"
+          :header/nav/feedback "feedback"
+
+          ;; footer
+          :footer/description "sharchan is released under the <a href=\"https://opensource.org/license/BSD-2-Clause\">BSD 2-Clause</a> license. Get and use the <a href=\"/logo\" class=\"takes-parameters\">sharchan logo</a>. More useful links below."
+  }
+  :index {
+          ;; general metadata
+          :meta/keywords "sharchan, file, file-sharing"
+          :meta/description ""
+          :meta/author "unknown"
+          :meta/title-prefix "homepage"
+
+          ;; main section
+          :main/automate-heading "Automate your process in the daily life"
+          :main/automate-description "sharchan provides features that will help you with the transfer of information and automation of any processes."
+          :main/getting-started-button "Getting Started"
+
+          ;; about section
+          :about/heading "What is this?"
+          :about/description "sharchan is a simple and insecure file hosting service created as part of an educational project. It is mainly intended for transferring small files using HTTP requests, which means you can automate some things by making requests through scripts."
+          :about/img-alt "ammo-box"
+
+          ;; features section
+          :features/heading "Features"
+          :features/opensource/heading "Open Source"
+          :features/opensource/description "Our solution being open source does not represent an advantage; it just means that users can not only use this service but also modify the source code and deploy it for personal use. The source code is available under the BSD 2-Clause license."
+          :features/api/heading "Simple API"
+          :features/api/description "We provide a simple and intuitive API that allows for easy integration of our solution into your workflows. With our API, you can automate tasks effectively."
+          :features/link-shortening/heading "Link Shortening"
+          :features/link-shortening/description "With our tool, you can easily shorten long links, making them more convenient for use and sharing. This is especially useful for social media, email newsletters, and other platforms where character limits apply."
+          :features/no-ads/heading "No Ads"
+          :features/no-ads/description "We value your time and attention, which is why our solution is completely ad-free. You can focus on your tasks without distractions."
+
+          ;; stats section
+          :stats/api-requests "API requests executed"
+          :stats/total-files "Total files stored"
+          :stats/erased-files "Total erased files"
+
+          ;; how it works section
+          :howitworks/heading "How it Works"
+          :howitworks/post-command-description "Using the first command we sent a POST request to upload the file <code>`helloworld.txt`</code> to the server. After that, we used the second command to retrieve the contents of that file."
+          :howitworks/post-command-note "<strong>Note:</strong> The output from second command can be redirected to a new file by using the following syntax:"
+          :howitworks/put-command-description "Instead of sending a POST request using the <code>`-F`</code> parameter, you can use the <code>`curl -T`</code> command to send a PUT request. This command allows you to upload a file to the server using the HTTP PUT method."
+          :howitworks/piping-description "You can also pipe input from another command directly into <code>`curl`</code> like this. In this case, the hyphen <code>`-`</code> signifies that <code>`curl`</code> should read from standard input. This way you can upload command output."
+          :howitworks/piping-note-first "<strong>Note:</strong> You can also upload the output of a command, including any error messages from <code>`stderr`</code>, to the server using the following syntax:"
+          :hotitworks/piping-note-second "In this command, <code>`2&gt;&amp;1`</code> redirects <code>`stderr`</code> (file descriptor 2) to <code>`stdout`</code> (file descriptor 1), allowing both standard output and standard error to be sent through the pipe."
+          :howitworks/shortening-description "Any of the three commands will help you shorten the link and then use the shortened version to access the file. This can be useful when distributing the link."
+          :howitworks/learn-more-button "Learn More"
+
+          ;; try it yourself section
+          :tryit/heading "Try It Yourself"
+          :tryit/file-upload-button "Choose a file"
+
+          ;; file retention section
+          :retention/heading "File Retention Period"
+
+          ;; feedback section
+          :feedback/heading "Your Possible Feedback"
+          :feedback/description "Everything is quite simple. There are two options:"
+          :feedback/option-1 "If you have any questions, suggestions, or requests, you can contact me on VKontakte."
+          :feedback/option-2 "In case you find any bugs or have suggestions for improving functionality, you can leave a bug report in the issues section on GitHub or submit a pull request with your changes."
+  }
+  :policy {
+          :meta/keywords "sharchan, file, file-sharing"
+          :meta/description ""
+          :meta/author "unknown"
+          :meta/title-prefix "policy"
+
+	  :main/privacy-policy-heading "Privacy Policy"
+	  :main/introduction-heading "Introduction"
+	  :main/introduction-description "We value your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, use, and safeguard information obtained from users of our file-sharing service for programmers. Please read this policy carefully to understand our views and practices regarding your information."
+
+	  :main/information-collection-heading "Information Collection"
+	  :main/information-collection-description "When using our service, we may collect the following information:"
+	  :main/information-collection/files-and-data "<strong>Files and Data:</strong> You upload files through our API, and these files may contain personal data. We do not control the content of uploaded files and are not responsible for their contents."
+	  :main/information-collection/log-files "<strong>Log Files:</strong> We may collect information about your device and usage of the service, including IP address, browser type, access time, and the pages you visit."
+
+	  :main/use-of-information-heading "Use of Information"
+	  :main/use-of-information-description "The information we collect may be used for the following purposes:"
+	  :main/use-of-information/providing-services "<strong>Providing Services:</strong> We use your data to process requests for file uploads and downloads."
+	  :main/use-of-information/improving-service "<strong>Improving the Service:</strong> By analyzing usage data, we can enhance the functionality and user experience of our service."
+	  :main/use-of-information/user-communication "<strong>User Communication:</strong> We may use your contact information to reach out to you regarding issues related to your use of the service."
+
+	  :main/data-security-heading "Data Security"
+	  :main/data-security-description "Currently, our service does not provide sufficient security measures to protect your files. Please exercise caution when uploading sensitive information. We recommend avoiding the upload of personal data or files containing confidential information."
+
+	  :main/file-deletion-heading "File Deletion"
+	  :main/file-deletion-description "Files uploaded to our service will be automatically deleted after a certain period. Please take this into consideration when using our service and do not store important data on our file-sharing platform."
+
+	  :main/disclosure-to-third-parties-title "Disclosure to Third Parties"
+	  :main/disclosure-to-third-parties-description "We do not share your information with third parties without your consent, except as required by law or to protect our rights."
+
+	  :main/changes-to-privacy-policy-title "Changes to the Privacy Policy"
+	  :main/changes-to-privacy-policy-description "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an indication of the date of the last update. We recommend periodically reviewing this page for any changes."
+  }
+  :logo {
+          :meta/keywords "sharchan, file, file-sharing"
+          :meta/description ""
+          :meta/author "unknown"
+          :meta/title-prefix "logo"
+
+	  :main/logo-heading "Design Bundle"
+          :main/logo-preview-heading "Logo"
+          :main/logo-preview-description "Only these logos are official, any modified of the logo do not belong to us and are not ours."
+
+          :main/colors-heading "Colors"
+          :main/colors-description "The colors below are used on this site:"
+
+          :main/bundle-heading "Bundle"
+          :main/bundle-description "You can download a bundle with all our logos."
+          :main/bundle-button "Download"
+  }
+}

@@ -2,7 +2,6 @@ const logo = document.getElementById('main-logo');
 const scrollBtn = document.getElementById('scroll-up');
 const themeBtn = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
-const langBtn = document.getElementById('lang-toggle');
 const menuBtn = document.getElementById('menu-toggle');
 const closeDialogBtn = document.getElementById('close-dialog');
 const grphCanvas = document.getElementById('retention-grph');
@@ -69,17 +68,20 @@ function loadChartJs(callback) {
 	document.body.appendChild(script);
 }
 
-if(document.documentElement.classList.contains('dark-theme')) {
-	prepareTheme(true);
+// check theme in local storage
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme) {
+	if(savedTheme == "dark")
+		prepareTheme(true);
+	else
+		prepareTheme(false);
 } else {
-	// check theme in local storage
-	const savedTheme = localStorage.getItem('theme');
-	if(savedTheme) {
-		if(savedTheme == "dark")
-			prepareTheme(true);
-		else
-			prepareTheme(false);
+	if(document.documentElement.classList.contains('dark-theme')) {
+		prepareTheme(true);
+	} else {
+		prepareTheme(false);
 	}
+
 }
 
 // format numbers
@@ -104,22 +106,6 @@ scrollBtn.onclick = () => {
 		top: 0,
 		behavior: 'smooth'
 	});
-}
-
-langBtn.onclick = () => {
-	const currentUrl = window.location.href.split('#')[0];
-
-	const urlParams = new URLSearchParams(window.location.search);
-	const langParam = urlParams.get('lang');
-
-	if(langParam) {
-		urlParams.delete('lang');
-	} else {
-		urlParams.append('lang', 'ru');
-	}
-
-	const newUrl = `${window.location.origin}${window.location.pathname}${urlParams.toString() ? '?' + urlParams.toString() : ''}${window.location.hash}`;
-	window.location.href = newUrl;
 }
 
 menuBtn.addEventListener('click', () => {
