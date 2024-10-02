@@ -55,6 +55,9 @@
 	justify-content: center;
 	align-content: center;
 }
+.mobile-reverse {
+	flex-wrap: wrap;
+}
 .margin-set {
 	margin-top: 120px;
 }
@@ -144,6 +147,12 @@
 @media screen and (min-width: 0px) and (max-width: 1080px) {
 	.row-item {
 		flex: unset;
+	}
+	#example-list {
+		gap: var(--spacing-10);
+	}
+	.mobile-reverse {
+		flex-wrap: wrap-reverse;
 	}
 	.policy-content {
 		max-width: 70%;

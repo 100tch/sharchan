@@ -63,7 +63,7 @@ header a:hover {
 	flex-direction: row;
 	justify-content: space-between;
 	box-shadow: var(--shadow);
-	height: 60px;
+	height: var(--header-height);
 	position: sticky;
 	top: 0;
 	z-index: 100;

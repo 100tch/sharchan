@@ -2,6 +2,7 @@
     (:require [next.jdbc :as jdbc]
               [clojure.java.io :as io]
               [sharchan.config :refer [config]]
+              [sharchan.util :refer [is-text-file?]]
               [digest :as digest]))
 
 ;; database setup (using next.jdbc)
@@ -28,6 +29,10 @@
   (jdbc/execute-one! db-spec ["UPDATE files SET ext = ?, mime = ? WHERE sha256 = ?"
                               ext mime-type (byte-array (.getBytes sha256-hash))]))
 
+(defn get-file-metadata [sha256-hash]
+  (jdbc/execute-one! db-spec ["SELECT ext, mime FROM files WHERE sha256 = ?"
+                              (byte-array (.getBytes sha256-hash))]))
+
 (defn update-metric [name]
   (let [existing-metric (jdbc/execute-one! db-spec ["SELECT * FROM metrics WHERE name = ?" name])]
     (if existing-metric
@@ -45,8 +50,11 @@
 
             (let [data (slurp tempfile :encoding "ISO-8859-1")
                   sha256-hash (digest/sha-256 data)
-                  mime-type (or content-type "application/octet-stream")
-                  ext (or (second (re-find #"\.([a-zA-Z0-9]+)$" filename)) "bin")
+                  is-text? (is-text-file? tempfile)
+                  mime-type (or content-type
+                                (if is-text? "text/plain" "application/octet-stream"))
+                  ext (or (second (re-find #"\.([a-zA-Z0-9]+)$" filename))
+                                (if is-text? "txt" "bin"))
                   existing-file (file-exists? sha256-hash)]
 
               (cond

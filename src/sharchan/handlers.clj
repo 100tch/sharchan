@@ -1,5 +1,5 @@
 (ns sharchan.handlers
-  (:require [sharchan.db :refer [create-url get-url get-url-by-id file-removed? save-file]]
+  (:require [sharchan.db :refer [create-url get-url get-url-by-id file-removed? save-file get-file-metadata]]
             [sharchan.util :refer [encode decode]]
             [sharchan.config :refer [config]]
             [clojure.java.io :as io]
@@ -35,7 +35,6 @@
   (let [filename (get params "filename" "uploaded_file")
         content-type (get headers "content-type" "application/octet-stream")
         transfer-encoding (get headers "transfer-encoding")
-        content-length (get headers "content-length")
         tempfile (java.io.File/createTempFile "put-upload" ".tmp")]
 
     (if (= transfer-encoding "chunked")
@@ -47,20 +46,25 @@
                            :size (.length tempfile)}}))
       (let [content-length (get headers "content-length")]
         (if content-length
-          (with-open [in (io/input-stream body)
-                      out (io/output-stream tempfile)]
-            (io/copy in out)
+          (with-open [out (io/output-stream tempfile)]
+            (io/copy (slurp body) out)
             (save-file {:file {:tempfile tempfile
                                :filename filename
                                :content-type content-type
                                :size (Long/parseLong content-length)}}))
           {:status 411 :body "Length Required (Could not determine remote file size (no Content-Length in response header))\n"})))))
 
+(defn build-file-response [file-path file-hash metadata]
+  (-> (file-response file-path)
+      (assoc :headers {"Content-Type" (:files/mime metadata)
+                       "Content-Disposition" (str "attachment; filename=\"" file-hash "." (:files/ext metadata) "\"")})))
+
 (defn handle-hash [x]
-    (let [file-path (str "storage/" x)]
+    (let [file-path (str "storage/" x)
+          metadata (get-file-metadata x)]
       (cond
         (.exists (io/file file-path))
-        (file-response file-path)
+        (build-file-response file-path x metadata)
 
         (file-removed? x)
         {:status 410 :body "Gone\n"}
@@ -70,16 +74,18 @@
               url-record (get-url-by-id id)]
           (if url-record
             (let [url-file-hash (:urls/url url-record)
+                  url-file-metadata (get-file-metadata url-file-hash)
                   url-file-path (str "storage/" url-file-hash)]
               (cond
                 (file-removed? url-file-hash)
                 {:status 410 :body "Gone\n"}
 
                 (.exists (io/file url-file-path))
-                (file-response url-file-path)
+                (build-file-response url-file-path url-file-hash url-file-metadata)
 
                 :else
-                {:status 404 :body "File not found\n"})))))))
+                {:status 404 :body "File not found\n"}))
+            {:status 404 :body "File not found\n"})))))
 
 (defn robots-handler [req]
   {:status 200

@@ -41,6 +41,8 @@
 	--transition-all: all 200ms ease-in-out;
 	--transition-transform: transform 300ms ease-out;
 	--transition-opacity: opacity 200ms ease-in-out;
+
+	--header-height: 60px;
 }
 html.dark-theme {
 	--color-background: #121212;
@@ -313,6 +315,9 @@ html.dark-theme {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+* {
+	scroll-margin-top: var(--header-height);
 }
 html {
 	scroll-behavior: smooth;

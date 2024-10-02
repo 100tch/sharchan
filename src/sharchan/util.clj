@@ -57,13 +57,20 @@
   (let [files (file-seq (io/file dir))]
     (count (filter #(re-matches #".*\.(jpg|jpeg|png|gif)$" (.getName %)) files))))
 
+(defn is-text-file? [file]
+  (try
+    (slurp file :encoding "ISO-8859-1")
+    true
+    (catch java.io.IOException e
+      false)))
+
 ;; translations
 (defn load-translations [lang]
-  (let [filepath (str "locales/" lang ".edn")]
-    (let [resource (io/resource filepath)]
-      (if resource
-        (edn/read-string (slurp resource))
-        (edn/read-string (slurp (io/resource "locales/en.edn")))))))
+  (let [filepath (str "locales/" lang ".edn")
+        resource (io/resource filepath)]
+    (if resource
+      (edn/read-string (slurp resource))
+      (edn/read-string (slurp (io/resource "locales/en.edn"))))))
 
 (defn get-translation [lang page]
   (let [translations (load-translations lang)
