@@ -8,8 +8,8 @@ build:
 	mv target/uberjar/*-standalone.jar app/
 
 nginx:
-	cp -r nginx/app-nginx.conf.template /etc/nginx/sites-avilable/app-nginx.conf
-	sudo ln -s /etc/nginx/site-avilable/app-nginx.conf /etc/nginx/site-enabled/
+	cp nginx/app.conf.template /etc/nginx/sites-available/app-nginx.conf
+	sudo ln -sf /etc/nginx/sites-available/app-nginx.conf /etc/nginx/sites-enabled/app
 	sudo systemctl restart nginx
 
 clean:

@@ -1,5 +1,6 @@
 limit_req_zone $binary_remote_addr zone=get_requests:10m rate=5r/s;
-limit_req_zone $binary_remote_addr zone=post_requests:10m rate=2r/s;
+limit_req_zone $binary_remote_addr zone=post_put_requests:10m rate=2r/s;
+limit_req_zone $binary_remote_addr zone=file_get_requests:10m rate=3r/s;
 
 server {
 	client_max_body_size 256M;
@@ -15,7 +16,18 @@ server {
 	error_log /var/log/nginx/error.log warn;
 	access_log /var/log/nginx/access.log combined;
 
+	location ~ ^/(shorten|)$ {
+		limit_req zone=post_put_requests burst=2 nodelay;
+		proxy_pass http://localhost:3000;
+	}
+
+	location ~ ^/f/[^/]+$ {
+		limit_req zone=file_get_requests burst=3 nodelay;
+		proxy_pass http://localhost:3000;
+	}
+
 	location / {
+		limit_req zone=get_requests burst=5 nodelay;
 		proxy_pass http://localhost:3000;
 	}
 }
