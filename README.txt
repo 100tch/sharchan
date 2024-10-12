@@ -1,21 +1,38 @@
 ## sharchan
 
-FIXME: description
+sharchan is a simple and insecure file hosting service created as part of an educational project. It is mainly intended for transferring small files using HTTP requests.
 
-## installation
+## installation 
 
-Download from http://example.com/FIXME.
+make sure you have installed the:
+	* make (for building)
+	* nginx (optional (because you can use apache or otherwise) but recommended)
+	* systemd (system is expected to have it)
 
 ## usage
 
-FIXME: explanation
+after clone repo you can use
 
-    $ java -jar sharchan-0.1.0-standalone.jar [args]
+	$ make build
 
-## examples
+for build app. and 
 
-...
+	$ make nginx
 
-### bugs
+for move config template to /etc/nginx and "activate" him
 
-...
+after all you can just change directory to app/
+
+	$ cd app
+
+and launch
+
+	$ java -jar *-standalone.jar
+
+note: before launching you will also need to move `config.edn` to the app directory and edit it for yourself
+
+## client
+
+repo contain `shar.sh` file. you can put him to the /bin/ directory and use simple interface for file sharing. for help type:
+
+	$ shar.sh --help
