@@ -1,6 +1,6 @@
 ## sharchan
 
-sharchan is a simple and insecure file hosting service created as part of an educational project. It is mainly intended for transferring small files using HTTP requests.
+sharchan is a simple and insecure file hosting service created as part of an educational project. it is mainly intended for transferring small files using HTTP requests.
 
 ## installation 
 

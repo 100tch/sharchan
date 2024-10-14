@@ -55,7 +55,7 @@ header a:hover {
 	display: none;
 }
 #main-logo {
-	margin-top: var(--spacing-4);
+	margin-top: var(--spacing-8);
 	height: 200px;
 	transition: height 0.3s ease;
 }
